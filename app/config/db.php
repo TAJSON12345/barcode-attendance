@@ -1,19 +1,10 @@
 <?php
 
-// Database server (the Docker service name)
-$host = "postgres";
-
-// Database port inside the Docker network
-$port = "5432";
-
-// Database name
-$dbname = "attendance_db";
-
-// PostgreSQL username
-$username = "postgres";
-
-// PostgreSQL password
-$password = "admin123";
+$host = getenv("DB_HOST") ?: "postgres";
+$port = getenv("DB_PORT") ?: "5432";
+$dbname = getenv("DB_NAME") ?: "attendance_db";
+$username = getenv("DB_USER") ?: "postgres";
+$password = getenv("DB_PASSWORD") ?: "admin123";
 
 try {
 
@@ -21,7 +12,6 @@ try {
 
     $conn = new PDO($dsn, $username, $password);
 
-    // Show errors if something goes wrong
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch (PDOException $e) {
@@ -29,5 +19,3 @@ try {
     die("Database Connection Failed: " . $e->getMessage());
 
 }
-
-?>
