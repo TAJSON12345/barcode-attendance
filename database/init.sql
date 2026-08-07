@@ -79,3 +79,16 @@ CREATE TABLE IF NOT EXISTS attendance (
         REFERENCES courses(id)
         ON DELETE CASCADE
 );
+-- ==========================================
+-- Default Administrator
+-- ==========================================
+
+INSERT INTO users (fullname, username, password, role)
+VALUES
+(
+'System Administrator',
+'admin',
+'$2y$12$DfwWe.XgFKbBpf4Qefg2Ae8cuXRw33vMv4CB2DDLQ38.nKti0rCdC',
+'Administrator'
+)
+ON CONFLICT (username) DO NOTHING;
