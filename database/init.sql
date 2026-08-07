@@ -88,7 +88,7 @@ VALUES
 (
 'System Administrator',
 'admin',
-'$2y$12$DfwWe.XgFKbBpf4Qefg2Ae8cuXRw33vMv4CB2DDLQ38.nKti0rCdC',
+'$2y$10$GWzcZfrNFr6I4fEJ7nVoeu4zWQjzWlU.zdDxyc3W4hJQyJNmqQKKa',
 'Administrator'
 )
 ON CONFLICT (username) DO NOTHING;
